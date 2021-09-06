@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load util %}
+
+{% block title %}Contato{% endblock %}
+
+{% block content %}
+    <h1>Contato</h1>
+    <form  method="POST" class="form" autocomplete="off">  
+        {% csrf_token %}
+        {% for form in forms %}
+            {{form.label}}
+            {{form|addClass:"form-control" }}   
+        {% endfor %}
+        <button type="submit" class="btn btn-primary mt-3 w-100">Confirmar</button>
+        <a  href="/" class="btn btn-danger mt-1 w-100">Cancelar</a>
+    </form>
+{% endblock content %}
+
+
+{% block javascripts %}
+{% endblock javascripts %}  

@@ -1,3 +1,4 @@
+from core.forms import ContatoForm
 from django.shortcuts import render
 
 def index(request):
@@ -5,7 +6,11 @@ def index(request):
     return render(request, template_name)
 
 def contato(request):
-    return render(request, 'contato.html')
+    forms = ContatoForm(request.POST or None)
+    context = {
+        'forms':forms
+    }
+    return render(request, 'contato.html', context)
 
 def produto(request):
     return render(request, 'produto.html')
