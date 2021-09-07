@@ -5,4 +5,4 @@ class ContatoForm(forms.Form):
     nome  = forms.CharField(label="Nome")
     email  = forms.EmailField(label="Email")
     assunto  = forms.CharField(label="Assunto")
-    messagem  = forms.CharField(label="Menssagem", widget=Textarea())
+    menssagem  = forms.CharField(label="Menssagem", widget=Textarea())
