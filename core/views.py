@@ -1,4 +1,4 @@
-from core.forms import ContatoForm
+from core.forms import ContatoForm, ProdutoForm
 from django.shortcuts import render
 from django.contrib import messages
 
@@ -24,5 +24,10 @@ def contato(request):
     return render(request, 'contato.html', context)
 
 def produto(request):
+
+    if str(request.method) == "POST":
+        form = ProdutoForm(request.POST, request.FILES)
+
+
     return render(request, 'produto.html')
 
