@@ -24,10 +24,18 @@ def contato(request):
     return render(request, 'contato.html', context)
 
 def produto(request):
-
     if str(request.method) == "POST":
         form = ProdutoForm(request.POST, request.FILES)
-
-
-    return render(request, 'produto.html')
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Produto salvo com sucesso")
+            form = ProdutoForm()
+        else:
+            messages.error(request, "Erro ao salvar produto")
+    else:
+        form = ProdutoForm()
+    context = {
+        'forms': form
+    }
+    return render(request, 'produto.html', context)
 

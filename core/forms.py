@@ -32,4 +32,4 @@ class ContatoForm(forms.Form):
 class ProdutoForm(forms.ModelForm):
     class Meta:
         model = Produto
-        fields = ['name', 'preco', 'estoque', 'imagem']
+        fields = ['nome', 'preco', 'estoque', 'imagem']
